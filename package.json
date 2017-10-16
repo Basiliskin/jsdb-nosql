@@ -1,0 +1,15 @@
+{
+  "name": "jsdb-nosql",
+  "version": "1.0.0",
+  "description": "NoSQL nodejs in-memory data structure store",
+  "main": "jsDB.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "nosql"
+  ],
+  "author": "Dimitry Katz",
+  "license": "BSD-3-Clause"
+}

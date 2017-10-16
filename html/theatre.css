@@ -1,0 +1,76 @@
+
+.theatre {		
+	position:relative;
+
+	background-color: white;
+	overflow: hidden;
+	text-align: center;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 2px solid rgb(104, 104, 104);
+	box-shadow: rgb(51, 51, 51) 0px 0px 5px;
+
+
+	margin:0px;padding:0px;
+}
+.theatre-wrapper {
+	width: 100%;
+	position: relative;
+	padding: 1%;  
+	margin: 1%; 
+}
+.theatreMenu{
+	position:absolute;
+	top : 10px;
+	left : 240px;
+	z-index : 55550;
+}
+.mapSeat {
+	position:absolute;
+	line-height:20px; 
+	padding: 0; 
+	margin: 0px auto;
+	text-align:center;
+	text-decoration: none;
+
+	width:20px; 
+	height:20px;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.regionRow {
+	color: black;
+	font: 12px arial;
+	font-weight:bold;
+}
+
+.regionSeat {
+	color: black;
+	font: 9px arial;
+	font-weight:normal;
+}
+.seatCanSelect {
+	color: white;
+}
+
+.seatCart {	
+	
+}
+.selection {
+	position: absolute;
+	border: 1px solid #89B;
+	background: #BCE;
+	background-color: #BEC;
+	border-color: #8B9;
+}
+a.seatSelect:link {text-decoration:none; cursor: pointer;}
+a.seatSelect:visited {text-decoration:none; cursor: pointer;}
+a.seatSelect:hover {text-decoration:none; cursor: pointer; }
+a.seatSelect:active {text-decoration:none; cursor: pointer;}
+
+.md-button.md-small {
+	min-width: 1%;
+}

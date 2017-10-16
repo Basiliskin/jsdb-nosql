@@ -1,0 +1,105 @@
+<html>
+  <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Angular Theatre Booking API</title>
+	<script src="jquery-1.10.2.js"></script>
+
+
+	<link rel="stylesheet" href="theatre.css">
+	 <!-- Angular Material style sheet -->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+<body ng-app="BlankApp" ng-cloak>
+
+	<div ng-controller="MainCtrl as ctrl" layout="column" ng-cloak>
+		<md-content>
+			<div layout="row" flex="100" layout-align="center center">
+				<h1>{{ctrl.selectedRegionName}}</h1>
+			</div>
+			<div layout="row" flex="100" layout-align="center center" >
+				<div layout="row" flex="100" layout-align="center center">
+					<md-input-container>
+					  <label>Map</label>
+					  <md-select ng-model="ctrl.mapName" ng-change="ctrl.LoadMap()">
+						<md-option><em>None</em></md-option>
+						<md-option ng-repeat="map in ctrl.maps" ng-value="map">
+						  {{map.name}}
+						</md-option>
+					  </md-select>
+					</md-input-container>
+				</div>
+				<div layout="row" flex="100" layout-align="center center" ng-if="ctrl.Region.length">
+					<md-button class="md-raised md-small" ng-click="ctrl.zoom($event,1)" >
+						<md-tooltip>Zoom+</md-tooltip>
+						<md-icon>add</md-icon>
+					</md-button>
+					<md-button class="md-raised md-small" ng-click="ctrl.zoom($event,0)" >
+						<md-tooltip>Reset</md-tooltip>
+						<md-icon md-svg-src="reset.svg"></md-icon>
+					</md-button>
+					<md-button class="md-raised md-small" ng-click="ctrl.zoom($event,-1)">
+						<md-tooltip>Zoom-</md-tooltip>
+						<md-icon>remove</md-icon>
+					</md-button>
+				</div>
+			</div>
+			<div layout="row" flex="100" layout-align="center center">
+				<md-input-container ng-if="ctrl.Region.length">
+				  <label>Region</label>
+				  <md-select ng-model="ctrl.regionName" >
+					<md-option ng-repeat="region in ctrl.Region" ng-click="ctrl.showRegion(region)">
+					  {{region.name}}
+					</md-option>
+				  </md-select>
+				</md-input-container>
+				
+				
+				
+				<md-switch ng-model="ctrl.SelectMode" ng-if="!ctrl.CartMode && !ctrl.SelectMode" aria-label="Select" class="md-warn"  ng-change="ctrl.selectMode()">
+					Select
+				</md-switch>
+				<md-button class="md-raised md-small" ng-click="ctrl.SaveMap($event)"  ng-if="ctrl.Region.length">
+					<md-tooltip>Save</md-tooltip>
+					<md-icon>save</md-icon>
+				</md-button>
+				
+			</div>				
+			<div layout="row" flex="100" layout-align="center center">
+				<div class="theatre-wrapper" >
+					<div class="theatre" id="theatreMap"  set-height ph="55" pw="90">
+					</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" layout-align="center center" ng-repeat="region in ctrl.Booking">
+				<label>{{region.name}}</label>:<span>{{region.seats}}</span>
+			</div>
+		</md-content>
+	</div>
+	
+	<script src="jquery.event.drag-2.2.js"></script>
+	<script src="theatre.js"></script>
+	<script src="core.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97560841-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
