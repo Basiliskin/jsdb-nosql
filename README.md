@@ -10,7 +10,7 @@ NoSQL nodejs in-memory data structure store.
   
 #  jsDB Server :
 ```sh
-$ const jsDB = require('jsDB');
+$ const jsDB = require('jsdb-nosql')
 $ //jsDB.port = xxxxx; // same should be for client
 $ jsDB.server();
 ```
